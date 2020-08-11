@@ -1,11 +1,15 @@
-package com.sebix.dagger;
+package com.sebix.dagger.ui.auth;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import androidx.lifecycle.ViewModelProviders;
+
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.RequestOptions;
+import com.sebix.dagger.R;
+import com.sebix.dagger.viewmodels.ViewModelProviderFactory;
 
 import javax.inject.Inject;
 
@@ -13,6 +17,12 @@ import dagger.android.support.DaggerAppCompatActivity;
 
 public class AuthActivity extends DaggerAppCompatActivity {
     private static final String TAG = "AuthActivity";
+
+    private AuthViewModel viewModel;
+
+    @Inject
+    ViewModelProviderFactory providerFactory;
+
 
     @Inject
     Drawable logo;
@@ -24,6 +34,7 @@ public class AuthActivity extends DaggerAppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
+        viewModel = ViewModelProviders.of(this,providerFactory).get(AuthViewModel.class);
         setLogo();
     }
 
