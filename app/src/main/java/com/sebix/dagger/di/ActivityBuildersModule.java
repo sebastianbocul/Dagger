@@ -3,6 +3,7 @@ package com.sebix.dagger.di;
 import com.sebix.dagger.di.auth.AuthModule;
 import com.sebix.dagger.di.auth.AuthViewModelsModule;
 import com.sebix.dagger.di.main.MainFragmentBuildersModule;
+import com.sebix.dagger.di.main.MainViewModelModule;
 import com.sebix.dagger.ui.auth.AuthActivity;
 import com.sebix.dagger.ui.main.MainActivity;
 
@@ -18,7 +19,7 @@ public abstract class ActivityBuildersModule {
     abstract AuthActivity contributeAuthActivity();
 
     @ContributesAndroidInjector(
-            modules = {MainFragmentBuildersModule.class}
+            modules = {MainFragmentBuildersModule.class, MainViewModelModule.class}
     )
     abstract MainActivity contributeMainActivity();
 }
