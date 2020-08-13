@@ -3,6 +3,7 @@ package com.sebix.dagger.di.main;
 import androidx.lifecycle.ViewModel;
 
 import com.sebix.dagger.di.ViewModelKey;
+import com.sebix.dagger.ui.main.posts.PostsViewModel;
 import com.sebix.dagger.ui.main.profile.ProfileViewModel;
 
 import dagger.Binds;
@@ -15,4 +16,10 @@ public abstract class MainViewModelModule {
     @IntoMap
     @ViewModelKey(ProfileViewModel.class)
     public abstract ViewModel bindProfileViewModel(ProfileViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(PostsViewModel.class)
+    public abstract ViewModel bindPostsViewModel(PostsViewModel viewModel);
+
 }
