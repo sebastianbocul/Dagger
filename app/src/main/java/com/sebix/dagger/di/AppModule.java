@@ -10,6 +10,7 @@ import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.gson.Gson;
 import com.sebix.dagger.R;
+import com.sebix.dagger.models.User;
 import com.sebix.dagger.util.Constants;
 
 import javax.inject.Singleton;
@@ -52,6 +53,12 @@ public class AppModule {
     @Provides
     static Drawable provideAppDrawable(Application application){
         return ContextCompat.getDrawable(application,R.drawable.logo);
+    }
+
+    @Singleton
+    @Provides
+    static User someUser(){
+        return new User();
     }
 
 }
